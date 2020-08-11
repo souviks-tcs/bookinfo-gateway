@@ -32,6 +32,6 @@ spec:
         exact: /pnrInquiry/getPNRStatus
     route:
     - destination:
-        host: book-api
+        host: book-ui
         port:
-          number: 8080
+          number: 3000

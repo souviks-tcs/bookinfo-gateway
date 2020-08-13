@@ -1,0 +1,37 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: rail-backend-dev-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: rail-backend-dev-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - rail-backend-dev-gateway
+  http:
+  - match:
+    - uri:
+        exact: /manageBooking/bookTickets
+    - uri:
+        exact: /manageBooking/cancelBooking
+    - uri:
+        exact: /pnrInquiry/getPNRStatus
+    route:
+    - destination:
+        host: book-api
+        port:
+          number: 8080

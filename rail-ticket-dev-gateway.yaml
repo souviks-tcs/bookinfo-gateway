@@ -35,7 +35,6 @@ spec:
         host: book-api
         port:
           number: 8080
-  http:
   - match:
     - uri:
         exact: /getAllTrains

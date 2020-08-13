@@ -35,16 +35,6 @@ spec:
         host: book-api
         port:
           number: 8080
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: rail-backend-dev-v2
-spec:
-  hosts:
-  - "*"
-  gateways:
-  - rail-backend-dev-gateway
   http:
   - match:
     - uri:

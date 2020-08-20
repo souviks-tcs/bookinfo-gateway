@@ -40,6 +40,6 @@ spec:
         exact: /getAllTrains
     route:
     - destination:
-        host: fetchtrainlistapi
+        host: fetch-train-api
         port:
           number: 8085
